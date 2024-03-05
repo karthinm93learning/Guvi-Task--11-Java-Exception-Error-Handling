@@ -1,0 +1,196 @@
+Program- 4
+=============================================================================================
+package com.guvi.Task11;
+
+import java.util.Scanner;
+
+public class DivException {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int num1, num2 = 0, result = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a Number1: ");
+		num1 = sc.nextInt();
+		System.out.println("Enter a Number2: " + num2);
+		
+		try {
+			// exception
+			result = num1/num2;
+		} catch (Exception e) {
+			
+			System.out.println(e);
+		}
+		
+		System.out.println(result);
+	}
+}
+=============================================================================================
+Output:
+
+Enter a Number1: 5
+Enter a Number2: 0
+java.lang.ArithmeticException: / by zero
+0
+
+=============================================================================================
+Program- 5
+=============================================================================================
+package com.guvi.Task11;
+
+public class StringArrayException {
+
+	public static void main(String[] args) {
+		
+		System.out.println("=======ArrayIndexOutOfBoundsException=======");
+
+		int arr[] = new int[5];
+		try {
+			System.out.println(arr[6]);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println(e);
+		}
+		System.out.println();
+		System.out.println("=======StringIndexOutOfBoundsException=======");
+		
+		String str = "karthi";
+		
+		try {
+			System.out.println(str.charAt(7));
+		} catch (StringIndexOutOfBoundsException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}
+	}
+}
+=============================================================================================
+Output:
+
+=======ArrayIndexOutOfBoundsException=======
+java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 5
+
+=======StringIndexOutOfBoundsException=======
+java.lang.StringIndexOutOfBoundsException: String index out of range: 7
+
+=============================================================================================
+Program- 6
+=============================================================================================
+package com.guvi.Task11;
+
+import java.util.Scanner;
+
+public class LoginSystem {
+
+	public static void main(String[] args) {
+		
+		String password = "karthi@123";
+		String matchPassword;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a Password: ");
+		matchPassword = sc.nextLine();
+		
+		try {
+			
+			if(password.equals(matchPassword)) {
+				System.out.println("Login Sucessfully");
+			}
+			else 
+			{
+				throw new Exception("Error Message");
+			}
+			
+		} catch (Exception e) {
+			
+		System.out.println(e);
+		}
+		sc.close();
+	}
+}
+=============================================================================================
+Output:
+
+Enter a Password: 
+test
+java.lang.Exception: Error Message
+
+=============================================================================================
+Program- 7
+=============================================================================================
+package com.guvi.Task11;
+
+public class AgeException extends Exception{
+	
+	private static final long serialVersionUID = 1L;
+	
+	public AgeException(String exc) {
+		
+		super(exc);
+	}
+}
+=============================================================================================
+package com.guvi.Task11;
+
+public class AgeMymain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		AgeMymain obj = new AgeMymain();
+
+		try {
+			obj.ageCalc(15); //Here we Declearing age as 15
+		} catch (AgeException e) {
+			System.out.println(e);
+		}
+	}
+	
+	
+	public void ageCalc(int age) throws AgeException {
+		if (age > 60) {
+			System.out.println("Senior Citizen");
+		} else if (age > 30) {
+			System.out.println("Adult");
+		} else if (age > 18) {
+			System.out.println("New Adult");
+		} else {
+			throw new AgeException("InvalidAgeException");
+		}
+		
+	}
+}
+
+=============================================================================================
+Output:
+
+com.guvi.Task11.AgeException: InvalidAgeException
+
+=============================================================================================
+Program- 8
+=============================================================================================
+
+package com.guvi.Task11;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class FileException {
+
+	public static void main(String[] args) {
+		
+		try {
+			
+			FileInputStream fileobj = new FileInputStream("E:\\Text1.txt");
+		} catch (FileNotFoundException e) {
+			
+			System.out.println(e);	
+		}
+	}
+}
+=============================================================================================
+Output:
+
+java.io.FileNotFoundException: E:\Text1.txt (The system cannot find the file specified)
+
+=============================================================================================
